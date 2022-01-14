@@ -1,0 +1,116 @@
+<!-- This is the HTML skeleton all html files have -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Write CSS here */
+        /* This is a CSS rule */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: red;
+            font-size: 60px;
+            font-family: Arial;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        img {
+            width: 200px;
+        }
+        #main-img {
+            width: 400px;
+        }
+        #bio-heading {
+            color: #6DACFF;
+        }
+        body {
+            background-color: deepskyblue;
+        }
+        #header {
+            background-color: yellow;
+            /* All content within the #header div will be horizontally centered */
+            /* btw text-align also centers images */
+            text-align: center;
+        }
+        #bio {
+            background-color: pink;
+            width: 600px;
+            /* text-align: center; */
+
+            /* There are 2 ways to create spacing */
+            /* margins create space OUTSIDE of an element */
+            margin-left: 30px;
+            /* margin-top: 50px; */
+
+            /* padding creates space INSIDE an element */
+            padding-left: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+            /* Center the whole bio div */
+            margin-left: auto;
+            margin-right: auto;
+
+            /* Add a border around the entire bio div */
+            border-width: 2px;
+            border-color: black;
+            border-style: solid;
+            
+        }
+        #facts {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>All About Pikachu</h1>
+    </div>
+
+    <div id="bio">
+    
+        <h2 id="bio-heading">Biology</h2>
+
+        <!-- Two different ways to source an image -->
+        <!-- 1. Using absolute path. aka a URL that already exists. -->
+        <div id="image-container"><img id="main-img" src="https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-blue-version/8/89/Pikachu.jpg" alt="A happy jumping pikachu" /></div>
+
+        <!-- 2. Use an image that is saved on your machine. Use relative path to source the image. -->
+        <img src="images/pikachu.jpeg" alt="Pikachu with bangs"/>
+
+        <p>Pikachu is a <strong>short</strong>, chubby rodent Pokémon. It is covered in yellow fur with two horizontal brown stripes on its back. It has a small mouth, long, pointed ears with black tips, brown eyes, and the two red circles on its cheeks contain pouches for electricity storage. It has short forearms with five fingers on each paw, and its feet each have three toes. At the base of its lightning bolt-shaped tail is a patch of brown fur. A female will have a V-shaped notch at the end of its tail, which looks like the top of a heart. It is classified as quadruped, but it has been known to stand and walk on its hind legs.</p>
+
+        <p>The anime has shown that wild Pikachu live in groups in forested areas. Pikachu communicates amongst themselves using squeaks and tail-shaking as friendly gestures. Electricity can be used to receive and send messages with each other, as well as other Electric Pokémon species. It raises its tail to check its surroundings and is occasionally struck by lightning in this position. When groups grow, they can inadvertently cause lightning storms. Pikachu is found foraging for berries it roasts with electricity to make them tender enough to eat. A sure sign that Pikachu inhabits a location is patches of burnt grass. It has been observed eating and sometimes destroying telephone poles, wires, and other electronic equipment.</p>
+    </div>
+
+    <div id="facts">
+        <h2>Facts</h2>
+        <ul>
+            <li>is yellow</li>
+            <li>electric type</li>
+            <li>is cute</li>
+        </ul>
+    </div>
+
+    <h2>Links</h2>
+    <p>Click <a href="https://www.google.com" target="_blank">me</a> to visit our website.</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
