@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coachella</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        #header {
+            background-color: #f5dfc0;
+            text-align: center;
+        }
+        /* selects only the <h1> tags  inside of #header */
+        #header h1 {
+            margin-top: 0;
+            margin-bottom: 0;
+            color: blue;
+        }
+        #about-row {
+            background-color: yellow;
+            margin-left: auto;
+            margin-right: auto;
+            width: 900px;
+        }
+        #about-row #column1 {
+            background-color: lightgreen;
+            width: 500px;
+            float: left;
+        }
+        #about-row #column2 {
+            background-color: pink;
+            height: 100%;
+            /* padding-bottom: 100px; */
+            /* width: 400px; */
+            width: 378px;
+            /* Padding by default increases the width of the div that padding is applied to */
+            padding-left: 10px;
+            padding-right: 10px;
+            /* Border also adds to the width of the div that is applied to */
+            border: 1px solid black;
+            float: left;
+            /* Floats do two things
+                1. Pushes floated element to the left as possible
+                2. weird side effect: makes the element that comes AFTER this div to also try to wrap around this element.
+            */
+        }
+        .clearfloat {
+            clear: both;
+        }
+        #artists-row {
+            background-color: skyblue;
+            /* (1+ 10+ 10+ 300 + 10 + 10 + 1) * 3 */
+            width: 1026px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        #artists-row .artist-column {
+            background-color: #fef587;
+            width: 300px;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid black;
+            float: left;
+        }
+        /* By default, images don't resize. You have to make a specific rule for images to fit inside their parent <div> */
+        #artists-row .artist-column img {
+            /* width: 300px; */
+            /* the image will now always be the same size as its parent <div> */
+            width: 100%;
+        }
+        #footer {
+            background-color: black;
+            color: white;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <h1>Coachella</h1>
+    </div><!-- end of #header -->
+
+    <div id="about-row">
+        <div id="column1">
+            <img src="images/coachella.png" alt="Palm tree" />
+        </div>
+        <div id="column2">
+            <p>The Coachella Valley Music and Arts Festival (commonly called Coachella or the Coachella Festival) is an
+                annual music and arts festival held at the Empire Polo Club in Indio, California, in the Coachella
+                Valley in the Colorado Desert. It was co-founded by Paul Tollett and Rick Van Santen in 1999, and is
+                organized by Goldenvoice, a subsidiary of AEG Presents. The event features musical artists from many
+                genres of music, including rock, pop, indie, hip hop and electronic dance music, as well as art
+                installations and sculptures. Across the grounds, several stages continuously host live music.</p>
+        </div>
+        <!-- STOP FLOAT HERE. This marks the end of this row. -->
+        <div class="clearfloat"></div>
+    </div><!-- end of #about-row -->
+
+    <div id="artists-row">
+        <h2>Artists</h2>
+        <!-- When multiple columns will end up looking very similar, can use the same class name for all the columns so that later in the CSS, we can use one CSS rule for all the columns -->
+        <div class="artist-column">
+            <img src="images/harry.jpeg" alt="Harry Styles" />
+            <h3>Harry Styles</h3>
+        </div>
+        <div class="artist-column">
+            <img src="images/billie.jpeg" alt="Billie Eilish" />
+            <h3>Billie Eilish</h3>
+        </div>
+        <div class="artist-column">
+            <img src="images/ye.jpeg" alt="Ye" />
+            <h3>Ye</h3>
+        </div>
+        <!-- STOP THE FLOAT. The row of columns end here. -->
+        <div class="clearfloat"></div>
+        <!-- Very important that clearfloat is BEFORE the end of the #artists-row div (the parent) -->
+    </div><!-- end of #artists-row -->
+
+    <div id="footer">
+        Made by Nayeon Kim at ITP 303.
+    </div>
+
+</body>
+
+</html>
