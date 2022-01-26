@@ -1,0 +1,51 @@
+/* Everything in here is CSS. No need to write the <style> tag */
+html,body{
+	margin: 0;
+	padding: 0;
+	font-family: 'Oswald', sans-serif;
+}
+/* * is a wildcard selector. It selects ALL HTML elements. */
+* {
+	box-sizing: border-box;
+}
+
+/* Colors for each box. */
+.box1 { background-color: #011627; }
+.box2 { background-color: #EB5160; }
+.box3 { background-color: #030301; }
+.box4 { background-color: #00D9C0; }
+.box5 { background-color: #FF0022; }
+
+/* The parent */
+.container {
+	border: 10px solid skyblue;
+	display: flex;
+	height: 500px;
+	/* flex-direction establishes the MAIN AXIS, defines the direction flex items (children) are placed in the flex container */
+	/* flex-direction: column; */
+
+	/* flex-wrap: nowrap; */
+
+	/* justify-content defines the alignment along the MAIN AXIS */
+	justify-content: center;
+
+	/* align-items defines alignment along the CROSS AXIS. CROSS AXIS is perpendicular to MAIN AXIS */
+	align-items: flex-end;
+}
+
+/* .container's direct children */
+.box {
+	color: white;
+	font-size: 28px;
+	/* by default, flex items (children) will always fit in one row, within the flex container (parent) */
+	/* width: 300px; */
+	width: 15%;
+	margin: 10px;
+}
+.box2 {
+	/* By default, all flex items have an order of 0 */
+	order: 4;
+}
+.box4 {
+	order: 5;
+}
