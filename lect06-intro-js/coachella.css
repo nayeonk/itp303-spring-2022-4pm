@@ -1,0 +1,102 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+img {
+	width: 100%;
+}
+#header {
+	background: linear-gradient(#feb645, #f1e767);
+	padding-top: 50px;
+	padding-bottom: 50px;
+	text-align: center;
+}
+#header h1 {
+	font-size: 50px;
+}
+h2 {
+	text-align: center;
+	display: block;
+	width: 100%;
+}
+#artists .artist {
+	background-color: #FEF587;
+	width: 300px;
+	float: left;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	position: relative;
+	box-sizing: border-box;
+	
+}
+.artist img {
+	width: 100%;
+}
+.artist h3 {
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+#artists .row {
+	/* (10 + 15 + 300 + 15 + 10) * 3 */
+	width: 990px;
+	margin-right: auto;
+	margin-left: auto;
+	box-sizing: border-box;
+}
+#artists .row:after{
+	clear: both;
+	display: table;
+	content: "";
+}
+#artists .artist:hover {
+	background-color: black;
+	cursor: pointer;
+}
+#artists .artist:hover h3 {
+	color: white;
+}
+.artist .overlay {
+	background-color: white;
+	border: 2px solid black;
+	text-align: center;
+	padding: 10px;
+	font-weight: bold;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100px;
+	
+	display: none;
+}
+
+#artists .artist:hover .overlay {
+	display: block;
+}
+
+#artists {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+#about {
+	background-color: #FFED6A;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+#about .about-inner {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#footer {
+	background-color: black;
+	text-align: center;
+	color: white;
+	padding: 10px 0;
+}
+
