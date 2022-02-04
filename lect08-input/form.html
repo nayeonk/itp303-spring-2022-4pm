@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS</title>
+	<style>
+		form {
+			width: 500px;
+		}
+		.form-row {
+			margin-bottom: 10px;
+			display: flex;
+		}
+		label {
+			padding-right: 10px;
+			width: 60px;
+		}
+		input {
+			width: 150px;
+			height: 20px;
+		}
+		.error {
+			color: red;
+			font-style: italic;
+			margin-left: 10px;
+			visibility: hidden;
+		}
+	</style>
+</head>
+<body>
+	<h1 id="text">Form</h1>
+
+	<form id="form" method="" action="">
+
+		<div class="form-row">
+			<label for="name-input">Name: </label>
+			<input type="text" id="name-input" name="name-input" placeholder="Tommy Trojan" />
+			<div class="error">Error message</div>
+		</div>
+
+		<div class="form-row">
+			<label for="age-input">Age: </label>
+			<input type="text" id="age-input" name="age-input"/> 
+			<div class="error">Error message</div>
+		</div>
+
+		<!-- Dropdown -->
+		<select>
+			<option>Freshman</option>
+			<option>Sophomore</option>
+			<option>Junior</option>
+		</select>
+
+		<div class="form-row">
+			<button type="submit" id="go-button">Go</button>
+		</div>
+
+	</form>
+
+	<script>
+
+		// ---- NUMBERS in JS
+		let number = 7;
+		let number2 = 1.5;
+
+		console.log( number + number2 );
+		console.log( number * number2 );
+		console.log( number - number2 );
+
+		console.log(1/2);
+		console.log(0.1 + 0.2);
+
+		let letter = "5";
+		console.log(number + letter);
+
+		console.log(1/"hi");
+		console.log(1/0);
+
+		// convert string to a number
+		// parseInt() converts string to an integer
+		// parseFloat() converts string to a float
+		let convertedNumber = parseInt(letter);
+		console.log(number + convertedNumber);
+
+
+		// ---- STRINGS in JS
+		let name = "nayeon";
+		let name2 = 'nayeon';
+		let name3 = `nayeon`;
+
+		// strings are arrays of characters
+		console.log( name[0] );
+		console.log( name.length );
+		console.log( name.indexOf("a") );
+		console.log( name.indexOf("z") );
+		console.log( name.indexOf("n") );
+		console.log( name.lastIndexOf("n") );
+		console.log( name.toUpperCase() );
+
+		// substrings
+		let food = "cucumber";
+		// .slice() returns the part of the string from start to (but not including) end
+		console.log( food.slice(3,5) );
+		console.log( food.slice(-4,-1) );
+
+		// .substring() - same as .slice() but doesn't do negative numbers
+
+		// .substr() - returns the part of the string from start to given length
+		// 1st arg: the starting index
+		// 2nd arg: the length
+		console.log( food.substr(2, 6) );
+
+		// Two ways to handle events on a SPECIFIC input tag
+		// .onchange()
+		document.querySelector("#name-input").onchange = function() {
+			console.log("onchange!");
+		}
+		// .oninput()
+		document.querySelector("#name-input").oninput = function() {
+			console.log("typing....");
+		}
+
+		// To submit the entire form
+		document.querySelector("#form").onsubmit = function(event) {
+			console.log(event);
+			// .preventDefault() prevents the default behavior from happening. i.e. prevents the form from submitting (refreshing)
+			event.preventDefault();
+			console.log("submit!!!");
+
+			// Check that the name is not empty
+
+			// Get the user's input
+			// .trim() removes any leading or trailing spaces
+			let nameInput = document.querySelector("#name-input").value.trim();
+
+			console.log(nameInput);
+
+			if( nameInput.length < 1 ) {
+				// Show an error message
+				// the error message is a sibling of <input>
+				let errorMessage = document.querySelector("#name-input").nextElementSibling;
+				errorMessage.style.visibility = "visible";
+				errorMessage.innerHTML = "Name cannot be empty!!!!";
+			}
+			else {
+				let errorMessage = document.querySelector("#name-input").nextElementSibling;
+				errorMessage.style.visibility = "hidden";
+			}
+		}
+
+	</script>
+
+</body>
+</html>
