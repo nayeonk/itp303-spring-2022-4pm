@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JS Objects</title>
+	<style>
+		#people-list, #people-list-with-string {
+			border: 1px solid black;
+			margin-bottom: 20px;
+		}
+	</style>
+	
+</head>
+<body>
+	<h1>Show All People</h1>
+	<div id="people-list">
+	</div>
+	<div id="people-list-with-string">
+	</div>
+
+	<script>
+		// Two ways to create an object in JS
+
+		// 1. Literal Syntax
+		// let person = "Tommy Trojan";
+		let person1 = {
+			name: "Michael Scott",
+			age: 54,
+			positions: [
+				"Sales Rep",
+				"Regional Manager",
+				"CEO"
+			],
+			phone: {
+				work: "123-123-2131",
+				personal: "555-555-5555"
+			},
+			greet: function() {
+				console.log("Hi! My name is " + this.name);
+			}
+		};
+
+		// Get the properties of an object using dot notation
+		console.log(person1);
+		console.log(person1.age);
+		console.log(person1.name);
+		console.log(person1.positions[1]);
+		console.log(person1.phone.work);
+
+		// Call an object's method
+		person1.greet();
+
+		let person2 = {
+			name: "Dwight Schrute",
+			age: 40,
+			positions: [
+				"Sales Rep",
+				"Assistant to the Regional Manager"
+			]
+		}
+
+		// 2. Constructor Function Syntax
+		function Person(fullName, age) {
+			this.name = fullName;
+			this.age = age;
+			this.employer = "Dunder Mifflin";
+		}
+
+		// Create an instance of Person
+		let jim = new Person("Jim", 34);
+		let pam = new Person("Pam Beesley", 31);
+
+		console.log(jim);
+		console.log(pam);
+
+		// Put all the people objects in an array
+		let peopleArray = [];
+		peopleArray.push(person1, person2, jim, pam);
+		console.log(peopleArray);
+
+		// Grab the parent element that all the people will be shown in
+		let peopleList = document.querySelector("#people-list");
+
+		for( let i = 0; i < peopleArray.length; i++) {
+			let pElement = document.createElement("p");
+			pElement.innerHTML = peopleArray[i].name + " - " + peopleArray[i].age;
+			peopleList.appendChild(pElement);
+		}
+
+		// Using html string
+		for( let i = 0; i < peopleArray.length; i++) {
+			let htmlString = `<p>${peopleArray[i].name} - ${peopleArray[i].age}</p>`;
+			document.querySelector("#people-list-with-string").innerHTML += htmlString;
+		}
+
+	</script>
+</body>
+</html>
