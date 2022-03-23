@@ -134,7 +134,7 @@
 						echo $_POST["email"];
 					}
 					else {
-						echo "Name is empty. Please type in your name.";
+						echo "Email is empty. Please type in your email.";
 					}
 				?>
 
@@ -144,7 +144,14 @@
 			<div class="col-3 text-right">Current Student:</div>
 			<div class="col-9">
 				<!-- Display Form Data Here -->
-				
+				<?php
+					if( isset($_POST["current-student"]) && !empty($_POST["current-student"])) {
+						echo $_POST["current-student"];
+					}
+					else {
+						echo "Not provided.";
+					}
+				?>
 
 			</div>
 		</div> <!-- .row -->
@@ -152,7 +159,18 @@
 			<div class="col-3 text-right">Subscribe:</div>
 			<div class="col-9">
 				<!-- Display Form Data Here -->
-				
+				<?php
+					if( isset($_POST["subscribe"]) && !empty($_POST["subscribe"])) {
+						// Foreach loop to iterate
+						foreach ( $_POST["subscribe"] as $sub ) {
+							echo $sub . ", ";
+						}
+					}
+					else {
+						// class text-danger is coming from bootstrap
+						echo "<div class='text-danger'>Not provided.</div>";
+					}
+				?>
 
 			</div>
 		</div> <!-- .row -->
