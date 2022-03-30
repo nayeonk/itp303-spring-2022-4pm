@@ -56,7 +56,7 @@ else {
 	. $_POST["genre"] . ", "
 	. $_POST["milliseconds"] . ","
 	. $_POST["price"] . ","
-	. $_POST["album"] . ","
+	. $album . ","
 	. $composer . ","
 	. $bytes . ");";
 	// display the completed sql statement to check that it looks good
