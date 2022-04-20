@@ -39,6 +39,8 @@
 				<div class="col-sm-9">
 					<input type="password" class="form-control" id="password-id" name="password">
 					<small id="password-error" class="invalid-feedback">Password is required.</small>
+
+					<img src="images/<?php echo $row["image_path"]; ?> "/>
 				</div>
 			</div> <!-- .form-group -->
 
@@ -65,6 +67,7 @@
 		</form>
 	</div> <!-- .container -->
 	<script>
+		// JS should always be the first line of defense when validating user input
 		document.querySelector('form').onsubmit = function(){
 			if ( document.querySelector('#username-id').value.trim().length == 0 ) {
 				document.querySelector('#username-id').classList.add('is-invalid');

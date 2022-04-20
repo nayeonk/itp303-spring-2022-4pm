@@ -1,4 +1,6 @@
 <?php
+	session_start();
+	session_destroy(); // deletes all session variables for this application
 ?>
 <!DOCTYPE html>
 <html>

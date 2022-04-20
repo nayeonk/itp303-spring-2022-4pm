@@ -1,14 +1,22 @@
 <?php
+//session_start();// have to call session_start() before anything else
+
 require '../config/config.php';
 
+// Giant if statement here. If user is NOT logged in, do the usual things. Check password, etc etc. Else, redirect the user out of this page
+if( !isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]) {
+
+	// There are two ways for user to get to this page. If they simply clicked on a link to get to login.php, they used a GET request. Therefore the below if statement will not be run
+	// If user is actually submitting the form, it would be via the POST request. Therefore the below if statement will run.
 	if ( isset($_POST['username']) && isset($_POST['password']) ) {
+		// Check if username and password fields have been submitted
 		if ( empty($_POST['username']) || empty($_POST['password']) ) {
 
 			$error = "Please enter username and password.";
 
 		}
 		else {
-
+			// user has provided username and password. Connect to the database and check if this username/password combination is correct!
 			$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 			if($mysqli->connect_errno) {
@@ -16,8 +24,10 @@ require '../config/config.php';
 				exit();
 			}
 
-			$passwordInput = "";
+			// hash the user's password input
+			$passwordInput = hash("sha256", $_POST["password"]);
 
+			// Search the users table. See if there is a record with the given username AND password
 			$sql = "SELECT * FROM users
 						WHERE username = '" . $_POST['username'] . "' AND password = '" . $passwordInput . "';";
 
@@ -30,8 +40,18 @@ require '../config/config.php';
 				exit();
 			}
 
-			if($results->num_rows > 0) {
-				
+			// If the username/password combo is correct, there should be only ONE record returned.
+			if($results->num_rows == 1) {
+				// Username/password combo is correct! Log the user in.
+
+				// Store some user info in session
+				$_SESSION["logged_in"] = true;
+				$_SESSION["username"] = $_POST["username"];
+
+				// Redirect the user to the home page (index.php)
+				// header() function makes a GET request
+				// header("Location: https://www.google.com");
+				header("Location: ../song-db/index.php");
 			
 			}
 			else {
@@ -39,6 +59,11 @@ require '../config/config.php';
 			}
 		} 
 	}
+}
+else {
+	// Redirect the user out of this page
+	header("Location: ../song-db/index.php");
+}
 ?>
 <!DOCTYPE html>
 <html>
